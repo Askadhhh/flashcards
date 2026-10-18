@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Флешкарты — повторение билетов</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Флешкарты</h1>
+            <div class="progress" id="progress">1 / 20</div>
+        </header>
+
+        <main>
+            <div class="ticket-label" id="ticket-label">Билет 1</div>
+            <div class="flashcard" id="flashcard">
+                <div class="flashcard-inner" id="flashcard-inner">
+                    <div class="flashcard-front">
+                        <div class="card-face-label">Вопрос</div>
+                        <p id="question"></p>
+                    </div>
+                    <div class="flashcard-back">
+                        <div class="card-face-label">Ответ</div>
+                        <p id="answer"></p>
+                    </div>
+                </div>
+            </div>
+            <div class="hint">Нажмите на карту, чтобы перевернуть</div>
+            <div class="controls">
+                <button id="btn-prev" disabled>← Предыдущий</button>
+                <button id="btn-next">Следующий →</button>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

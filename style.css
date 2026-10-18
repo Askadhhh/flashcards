@@ -1,0 +1,188 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #e0e0e0;
+}
+
+.container {
+    width: 100%;
+    max-width: 700px;
+    padding: 20px;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+header h1 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #e94560;
+}
+
+.progress {
+    font-size: 1rem;
+    color: #a0a0b0;
+    background: rgba(255, 255, 255, 0.08);
+    padding: 6px 16px;
+    border-radius: 20px;
+}
+
+.ticket-label {
+    text-align: center;
+    font-size: 0.95rem;
+    color: #a0a0b0;
+    margin-bottom: 12px;
+    letter-spacing: 0.5px;
+}
+
+/* --- Flashcard --- */
+.flashcard {
+    perspective: 1000px;
+    width: 100%;
+    height: 320px;
+    cursor: pointer;
+    margin-bottom: 16px;
+}
+
+.flashcard-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-style: preserve-3d;
+}
+
+.flashcard.flipped .flashcard-inner {
+    transform: rotateY(180deg);
+}
+
+.flashcard-front,
+.flashcard-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+    text-align: center;
+    overflow-y: auto;
+}
+
+.flashcard-front {
+    background: linear-gradient(145deg, #1e2a45, #253a5e);
+    border: 2px solid rgba(233, 69, 96, 0.3);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+}
+
+.flashcard-back {
+    background: linear-gradient(145deg, #1b3a2a, #24503f);
+    border: 2px solid rgba(80, 200, 120, 0.3);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+    transform: rotateY(180deg);
+}
+
+.card-face-label {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 16px;
+    opacity: 0.6;
+}
+
+.flashcard-front .card-face-label {
+    color: #e94560;
+}
+
+.flashcard-back .card-face-label {
+    color: #50c878;
+}
+
+.flashcard-front p,
+.flashcard-back p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+}
+
+.hint {
+    text-align: center;
+    font-size: 0.8rem;
+    color: #606078;
+    margin-bottom: 20px;
+}
+
+/* --- Controls --- */
+.controls {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+}
+
+.controls button {
+    flex: 1;
+    padding: 14px 20px;
+    border: none;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    background: rgba(233, 69, 96, 0.15);
+    color: #e94560;
+    border: 1px solid rgba(233, 69, 96, 0.3);
+}
+
+.controls button:hover:not(:disabled) {
+    background: rgba(233, 69, 96, 0.25);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(233, 69, 96, 0.2);
+}
+
+.controls button:active:not(:disabled) {
+    transform: translateY(0);
+}
+
+.controls button:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+}
+
+.controls button#btn-next {
+    background: rgba(233, 69, 96, 0.8);
+    color: #fff;
+    border-color: rgba(233, 69, 96, 0.9);
+}
+
+.controls button#btn-next:hover:not(:disabled) {
+    background: rgba(233, 69, 96, 1);
+    box-shadow: 0 4px 20px rgba(233, 69, 96, 0.4);
+}
+
+/* --- Scrollbar for card content --- */
+.flashcard-front p::-webkit-scrollbar,
+.flashcard-back p::-webkit-scrollbar {
+    width: 4px;
+}
+
+.flashcard-front p::-webkit-scrollbar-thumb,
+.flashcard-back p::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 4px;
+}
